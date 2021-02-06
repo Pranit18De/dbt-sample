@@ -9,16 +9,29 @@
 
 {{ config(materialized='table') }}
 
-with source_data as (
+with stage_table as (
+SELECT 
+ID 
+,Team 
+,Country 
+,NameF 
+,NameL 
+,Weight 
+,DOB 
+,Hometown 
+,Prov 
+,Pos 
+,Age 
+,HeightFt 
+,HtIn
+,BMI 
 
-    select 1 as id
-    union all
-    select null as id
+FROM DEMO_DB.PUBLIC.SAMPLE_TABLE
 
 )
 
-select *
-from source_data
+SELECT * from stage_table
+
 
 /*
     Uncomment the line below to remove records with null `id` values
